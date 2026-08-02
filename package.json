@@ -1,0 +1,43 @@
+{
+  "name": "glasskit",
+  "version": "1.0.0",
+  "description": "Dynamic Glass Material UI system written in Imba with a WebGL2/WebGL1/CSS render pipeline",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": true,
+  "main": "dist/glasskit.mjs",
+  "module": "dist/glasskit.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/glasskit.mjs",
+      "default": "./dist/glasskit.mjs"
+    },
+    "./css": "./dist/glasskit.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "predev": "node tools/glsl-inline.mjs",
+    "dev": "imba serve --web index.html",
+    "prebuild": "node tools/glsl-inline.mjs",
+    "build": "node tools/build.mjs",
+    "pretest": "node tools/glsl-inline.mjs",
+    "test": "node tools/test-runner.mjs",
+    "test:watch": "node tools/test-runner.mjs --watch",
+    "bench": "node tools/perf-bench.mjs",
+    "docs": "node tools/docgen.mjs",
+    "lint": "node tools/lint.mjs",
+    "golden": "node tools/golden.mjs"
+  },
+  "dependencies": {
+    "imba": "^2.0.0-alpha.235"
+  },
+  "devDependencies": {}
+}
